@@ -13,7 +13,7 @@ pipeline {
                expression { ENV_NAME == 'master' && params.Env == 'Dev'}
                }
                steps {
-                sh("aws s3 sync . s3://executivedashboard.dev.pgac.io --delete --exclude '.git*' --exclude 'Jenkinsfile' --profile dev-virginia --dryrun")
+                sh("aws s3 sync . s3://devtest2308 --delete --exclude '.git*' --exclude 'Jenkinsfile' --dryrun")
                }
            }
 
@@ -22,7 +22,7 @@ pipeline {
                expression {ENV_NAME == 'master' && params.Env == 'Prod'}
                }
                steps {
-               sh("aws s3 sync . s3://data.pgac.com  --delete --exclude '.git*' --exclude 'Jenkinsfile' --profile prod-virginia --dryrun")
+               sh("aws s3 sync . s3://prodtest2308  --delete --exclude '.git*' --exclude 'Jenkinsfile' --dryrun")
                }
            }
        }
