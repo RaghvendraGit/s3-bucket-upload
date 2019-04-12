@@ -10,7 +10,7 @@ pipeline {
    stages {
        stage('Deploy Dev') {
            when {
-               expression { ENV_NAME == 'master' && params.Env == 'Dev'}
+               expression { ENV_NAME == 'master' }
                }
                steps {
                 sh("aws s3 sync . s3://devtest2308 --delete --exclude '.git*' --exclude 'Jenkinsfile'")
