@@ -6,7 +6,9 @@ pipeline {
    parameters {
        choice(name: 'Env', choices: ['Prod'], description: 'Select Deploy Environment')
    }
-
+   triggers {
+    pollSCM('') // Enabling being build on Push
+  }
    stages {
        stage('Deploy Dev') {
            when {
